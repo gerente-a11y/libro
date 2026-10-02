@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Siempre hacia delante</title>
+<meta name="description" content="El libro de Ángel Gaitán: emprendimiento, ambición y superación.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1B1D21">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mi libro">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link id="fonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;padding-top:env(safe-area-inset-top,0px)}
+[hidden]{display:none!important}
+
+/* Lector de libro en el móvil: una página por capítulo, columna de lectura estrecha, barra de paso de página abajo */
+:root{
+  --paper:#F6F5F1; --ink:#1B1D21; --soft:#4A4D53; --muted:#6B6E74;
+  --accent:#C2410C; --mark:#FCE3D3; --line:#DEDAD2; --sheet:#FFFFFF;
+  --cover:#1B1D21; --cover-ink:#F3F1EC; --cover-accent:#F08A4B;
+  --display:'Oswald','Arial Narrow',Arial,sans-serif;
+  --read:'Literata',Georgia,'Times New Roman',serif;
+  --ui:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#141517; --ink:#ECEAE5; --soft:#C9C6BF; --muted:#9A978F;
+  --accent:#F08A4B; --mark:#4A2A17; --line:#2C2E32; --sheet:#1D1F22;
+  --cover:#0B0C0D; --cover-ink:#F3F1EC; --cover-accent:#F08A4B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#141517; --ink:#ECEAE5; --soft:#C9C6BF; --muted:#9A978F;
+  --accent:#F08A4B; --mark:#4A2A17; --line:#2C2E32; --sheet:#1D1F22;
+  --cover:#0B0C0D; --cover-ink:#F3F1EC; --cover-accent:#F08A4B; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--read);-webkit-text-size-adjust:100%}
+#app{min-height:100%;display:flex;flex-direction:column}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--paper);border-bottom:1px solid var(--line)}
+.top .name{flex:1;min-width:0;font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+button{font:inherit;cursor:pointer}
+.chip{font-family:var(--ui);font-size:.9rem;font-weight:600;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink)}
+.chip:focus-visible,.navbtn:focus-visible,.primary:focus-visible,.ghost:focus-visible,.toc a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+main{flex:1;padding:28px 20px 120px}
+.col{max-width:34rem;margin-inline:auto;display:flex;flex-direction:column;gap:1.1rem}
+.label{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+h1.ch{font-family:var(--display);font-weight:700;font-size:clamp(2rem,9vw,2.8rem);line-height:1.05;text-transform:uppercase;text-wrap:balance;margin:0}
+.quote{font-style:italic;font-size:1.15rem;color:var(--soft);margin:0;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
+.col p.par{font-size:1.14rem;line-height:1.72;margin:0;hyphens:auto}
+mark{background:var(--mark);color:var(--ink);padding:0 .15em;border-radius:3px}
+.cover{flex:1;background:var(--cover);color:var(--cover-ink);display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding:48px 24px 140px}
+.cover .who{font-family:var(--display);font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--cover-accent);font-size:1rem}
+.cover h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(3.2rem,17vw,6rem);line-height:.92;margin:0}
+.cover .sub{font-family:var(--read);font-style:italic;font-size:1.25rem;color:#C9C6BF;margin:12px 0 0}
+.cover .meta{font-family:var(--ui);font-size:.85rem;color:#9A978F}
+.cover .start{align-self:flex-start;font-family:var(--display);font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:1.05rem;padding:14px 22px;border-radius:999px;border:0;background:var(--cover-accent);color:#1B1D21}
+.toc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.toc a{display:flex;gap:14px;align-items:baseline;padding:14px 4px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none}
+.toc .n{font-family:var(--display);font-weight:500;color:var(--accent);min-width:3.2rem;letter-spacing:.06em}
+.toc .t{font-size:1.08rem}
+.toc .p{margin-left:auto;font-family:var(--ui);font-size:.8rem;color:var(--muted);white-space:nowrap}
+.help{font-family:var(--ui);font-size:.92rem;line-height:1.5;color:var(--soft);background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;align-items:center;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:1px solid var(--line)}
+.navbtn{flex:none;font-family:var(--ui);font-weight:600;font-size:.95rem;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);min-width:44px}
+.navbtn:disabled{opacity:.35}
+.count{flex:1;text-align:center;font-family:var(--ui);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.editbtn{border-color:var(--accent);color:var(--accent)}
+.veil{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center}
+.sheet{width:100%;max-width:40rem;max-height:92%;overflow:auto;background:var(--sheet);color:var(--ink);border-radius:18px 18px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px;font-family:var(--ui)}
+.sheet h2{font-family:var(--display);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:1.1rem;margin:0}
+.sheet label{font-size:.82rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.sheet input,.sheet textarea{width:100%;box-sizing:border-box;font-family:var(--read);font-size:1.05rem;line-height:1.55;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px}
+.sheet textarea#ed-body{min-height:42vh}
+.sheet textarea#ask{min-height:5.5em;font-family:var(--ui);font-size:1rem}
+.box{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:14px;border:1px dashed var(--accent)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.primary{flex:1;font-weight:700;font-size:1rem;padding:14px;border-radius:12px;border:0;background:var(--accent);color:#FFFFFF}
+:root[data-theme="dark"] .primary{color:#141517}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .primary{color:#141517}}
+.ghost{font-weight:600;font-size:1rem;padding:14px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--ink)}
+.primary:disabled,.ghost:disabled{opacity:.5}
+.status{font-size:.9rem;color:var(--soft);min-height:1.2em;margin:0}
+.toast{position:fixed;left:16px;right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:30;max-width:30rem;margin-inline:auto;background:var(--ink);color:var(--paper);font-family:var(--ui);font-size:.92rem;padding:12px 14px;border-radius:12px}
+@media (prefers-reduced-motion: no-preference){main .col,.cover{animation:in .25s ease-out}@keyframes in{from{transform:translateY(6px)}to{transform:none}}}
+
+.local{font-family:var(--ui);font-size:.8rem;font-weight:600;color:var(--accent)}
+</style>
+</head>
+<body>
+<div id="app"><div class="cover"><div><p class="who">Ángel Gaitán</p><h1>Siempre hacia delante</h1><p class="sub">De las motos de crío al plató</p></div></div></div>
+<script type="application/json" id="book-data">{"title": "Siempre hacia delante", "subtitle": "De las motos de crío al plató", "author": "Ángel Gaitán", "updated": "2026-10-02", "chapters": [{"id": "prologo", "label": "Prólogo", "title": "No soy escritor. Soy mecánico.", "quote": "", "paras": ["Llevo toda la vida con las manos manchadas de grasa, y lo que sé lo he aprendido a golpes: en el taller, en los juzgados, delante de una cámara y delante de mucha gente que me decía que no.", "Este libro no es para contarte lo bien que me ha ido. Es para contarte cómo se tira hacia delante cuando todo empuja hacia atrás. Cada capítulo es una etapa de mi vida, con lo que pasó de verdad, y al final, lo que me enseñó.", "Si tienes un negocio, quieres montarlo o estás pasando un mal momento, esto es para ti."]}, {"id": "p1", "label": "Parte I", "title": "De dónde vengo", "quote": "La ambición no se hereda. Se fabrica.", "paras": ["Lo primero que recuerdo no es una cara ni una casa. Es el ruido de una moto.", "De crío me pasaba las horas entre motos, [con quién: tu padre, un vecino, un amigo], desmontando todo lo que caía en mis manos para entender cómo funcionaba. [Tu primer recuerdo concreto: qué moto, dónde, qué edad tenías.]", "En casa [cómo era tu casa, qué hacían tus padres]. Allí aprendí algo que me ha acompañado siempre: si quieres algo, ve a por ello, porque nadie te lo va a traer.", "[La primera vez que ganaste dinero: cómo, cuánto y qué hiciste con él.]"]}, {"id": "p2", "label": "Parte II", "title": "Aprender el oficio", "quote": "El oficio es el seguro de vida del emprendedor.", "paras": ["[Tu primer trabajo: dónde, con quién y a qué edad.]", "[Cuándo decidiste que ibas a ser mecánico.]", "[Los jefes que te enseñaron, y los que te enseñaron cómo no ser.]", "[Tu primer cliente propio.]"]}, {"id": "p3", "label": "Parte III", "title": "Mi primera empresa", "quote": "Empieza pequeño, pero empieza.", "paras": ["Mi primera empresa se llamó GT Solution Automotive.", "[Cómo la montaste y con qué dinero.]", "[El peor mes. La primera vez que tuviste que pagar nóminas sin tener caja.]", "[Cómo y por qué te hiciste perito judicial.]"]}, {"id": "p4", "label": "Parte IV", "title": "El golpe que lo cambió todo", "quote": "Los peores días abren las puertas más grandes.", "paras": ["Fue en 2021. Estaba trabajando en un coche y se me cayó un motor encima. El codo, roto.", "Para un mecánico, no poder usar las manos es no poder trabajar. Y no poder trabajar, con un taller y gente que depende de ti, es lo más parecido al vacío.", "Fue mi hijo quien me dijo que lo subiera a TikTok. Cogí el móvil y empecé a contar lo que hacía. Un vídeo montando y desmontando un BMW X6 explotó. Detrás vino otro, y otro.", "Muchos compañeros me criticaron por contar los secretos del oficio. Yo lo tenía claro: cuanta más transparencia, mejor.", "[¿Qué sentiste la primera noche que viste las visitas?]"]}, {"id": "p5", "label": "Parte V", "title": "David contra Goliat", "quote": "Tener razón no basta. Hay que aguantar hasta que te la den.", "paras": ["En 2020 me compré un Tesla Model 3. Era cliente de la marca desde 2013 y me encantaban esos coches. Al segundo día empezó a hacer ruidos. Lo llevé al servicio oficial y, un mes después, seguía igual.", "Con los peritos encontramos el problema: una soldadura de la carrocería mal hecha de fábrica. Me ofrecieron soldarla. En un coche nuevo, les dije que no.", "Pedí mi dinero, se negaron y pusieron a sus abogados a trabajar. En 2022, el juez me dio la razón.", "[¿Cuánto te costó el proceso? ¿Quién te dijo que no lo intentaras?]"]}, {"id": "p6", "label": "Parte VI", "title": "La fama y su precio", "quote": "Si no te critican, es que no estás haciendo nada.", "paras": ["Llegar a millones de personas lo cambia todo. [Cuándo te diste cuenta de que ya no eras solo el mecánico de Aranjuez.]", "Vino la televisión, con Horizonte. Vino la DANA de Valencia, donde organizamos la recogida y el reparto de ayuda. Y con todo eso vinieron las críticas, los ataques y las denuncias por hablar claro.", "[Cómo lo viviste por dentro. Qué te dolió y qué te hizo más fuerte.]"]}, {"id": "p7", "label": "Parte VII", "title": "Construir un grupo", "quote": "Crecer es aprender a soltar.", "paras": ["Lo que empezó en un taller hoy es un grupo: GT Automoción, con el taller y la tienda; GT Sport, un gimnasio levantado desde cero; Training Tech Academy, para enseñar el oficio a otros mecánicos; Emprende con Ángel Gaitán, para quien quiere montar algo; un plató de televisión propio; y Anacunda, el paraguas que lo une todo.", "[Cómo aprendiste a delegar. A quién elegiste y por qué.]", "[Cómo usas la tecnología y la inteligencia artificial para estar en todo sin estar en todo.]"]}, {"id": "p8", "label": "Parte VIII", "title": "El hombre detrás del personaje", "quote": "La fuerza también es saber pedir ayuda.", "paras": ["[Padre, familia, cansancio, noches sin dormir. Tú decides cuánto entra aquí.]"]}, {"id": "p9", "label": "Parte IX", "title": "Hoy y lo que viene", "quote": "", "paras": ["[Dónde estás hoy. Lo que te queda por hacer.]", "[Qué le dirías al crío de las motos.]"]}, {"id": "epilogo", "label": "Epílogo", "title": "Mis reglas para tirar hacia delante", "quote": "", "paras": ["1. La ambición no se hereda, se fabrica.", "2. El oficio es tu seguro de vida.", "3. Empieza pequeño, pero empieza.", "4. Los peores días abren las puertas más grandes.", "5. Tener razón no basta: aguanta hasta que te la den.", "6. Si no te critican, no estás haciendo nada.", "7. Crecer es aprender a soltar.", "8. [La tuya.]"]}]}</script>
+<script>
+(function(){
+var BASE=JSON.parse(document.getElementById('book-data').textContent);
+var MAIL='gerente@grupogt.es';
+var app=document.getElementById('app');
+var page=0, editing=null;
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+function getEdits(){try{return JSON.parse(lsGet('libro-cambios')||'{}')||{}}catch(e){return {}}}
+function setEdits(o){return lsSet('libro-cambios',JSON.stringify(o))}
+function chapter(i){var c=BASE.chapters[i],e=getEdits()[c.id];return e?{id:c.id,label:c.label,quote:c.quote,title:e.title,paras:e.paras,local:true}:c}
+var TOTAL=BASE.chapters.length+2;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function rich(s){return esc(s).replace(/\[([^\]]+)\]/g,'<mark>[$1]</mark>')}
+var saved=parseInt(lsGet('libro-pagina')||'0',10); if(saved>=0&&saved<TOTAL)page=saved;
+var canSpeak=!!(window.speechSynthesis&&window.SpeechSynthesisUtterance);
+
+function render(){
+  lsSet('libro-pagina',String(page));
+  if(canSpeak){try{speechSynthesis.cancel()}catch(e){}}
+  var h='';
+  if(page===0){
+    h+='<div class="cover"><div><p class="who">'+esc(BASE.author)+'</p></div><div><h1>'+esc(BASE.title)+'</h1><p class="sub">'+esc(BASE.subtitle)+'</p></div><div style="display:flex;flex-direction:column;gap:14px"><button class="start" id="go-start">Empezar a leer</button><p class="meta">Borrador · versión del '+esc(BASE.updated)+'</p></div></div>';
+  }else{
+    h+='<div class="top"><span class="name">'+esc(BASE.title)+'</span><button class="chip" id="go-toc">Índice</button>'+(canSpeak&&page>1?'<button class="chip" id="speak">Escuchar</button>':'')+'</div><main><div class="col">';
+    if(page===1){
+      h+='<p class="label">Índice</p><h1 class="ch">'+esc(BASE.title)+'</h1><ol class="toc">';
+      BASE.chapters.forEach(function(_,i){var c=chapter(i);var pend=c.paras.join(' ').indexOf('[')>=0;h+='<li><a href="#" data-go="'+(i+2)+'"><span class="n">'+esc(c.label.replace('Parte ',''))+'</span><span class="t">'+esc(c.title)+'</span><span class="p">'+(c.local?'<span class="local">editado</span>':(pend?'por completar':''))+'</span></a></li>'});
+      h+='</ol><p class="help">Lo <mark>[resaltado entre corchetes]</mark> es lo que falta por contar. Abre un capítulo y pulsa <b>Editar</b> para dictar con el micrófono del teclado. Lo que cambies se guarda en este móvil; pulsa <b>Enviar a Claude</b> para que lo pase al libro.</p>';
+    }else{
+      var c=chapter(page-2);
+      h+='<p class="label">'+esc(c.label)+(c.local?' · <span class="local">editado en este móvil</span>':'')+'</p><h1 class="ch">'+esc(c.title)+'</h1>'+(c.quote?'<p class="quote">«'+esc(c.quote)+'»</p>':'');
+      c.paras.forEach(function(p){h+='<p class="par">'+rich(p)+'</p>'});
+    }
+    h+='</div></main>';
+  }
+  h+='<nav class="nav"><button class="navbtn" id="prev" aria-label="Página anterior"'+(page===0?' disabled':'')+'>‹</button><span class="count">'+(page===0?'Portada':page===1?'Índice':(page-1)+' / '+BASE.chapters.length)+'</span>'+(page>1?'<button class="navbtn editbtn" id="edit">Editar</button>':'')+'<button class="navbtn" id="next" aria-label="Página siguiente"'+(page===TOTAL-1?' disabled':'')+'>›</button></nav>';
+  app.innerHTML=h;window.scrollTo(0,0);bind();
+}
+function go(p){if(p<0||p>=TOTAL)return;page=p;render();}
+function bind(){
+  var e;
+  if(e=document.getElementById('go-start'))e.onclick=function(){go(1)};
+  if(e=document.getElementById('go-toc'))e.onclick=function(){go(1)};
+  if(e=document.getElementById('prev'))e.onclick=function(){go(page-1)};
+  if(e=document.getElementById('next'))e.onclick=function(){go(page+1)};
+  if(e=document.getElementById('edit'))e.onclick=function(){openEditor(page-2)};
+  if(e=document.getElementById('speak'))e.onclick=speak;
+  app.querySelectorAll('[data-go]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();go(parseInt(a.getAttribute('data-go'),10))}});
+}
+function speak(){
+  var b=document.getElementById('speak');
+  try{
+    if(speechSynthesis.speaking){speechSynthesis.cancel();b.textContent='Escuchar';return;}
+    var c=chapter(page-2);
+    var u=new SpeechSynthesisUtterance(c.title+'. '+(c.quote?c.quote+'. ':'')+c.paras.join(' ').replace(/\[[^\]]*\]/g,''));
+    u.lang='es-ES';u.onend=function(){if(b)b.textContent='Escuchar'};
+    speechSynthesis.speak(u);b.textContent='Parar';
+  }catch(err){toast('La lectura en voz alta no está disponible en este navegador.');}
+}
+var tx=null,ty=null;
+document.addEventListener('touchstart',function(ev){if(editing!==null)return;var t=ev.touches[0];tx=t.clientX;ty=t.clientY},{passive:true});
+document.addEventListener('touchend',function(ev){if(editing!==null||tx===null)return;var t=ev.changedTouches[0];var dx=t.clientX-tx,dy=t.clientY-ty;tx=null;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.6)go(dx<0?page+1:page-1)},{passive:true});
+document.addEventListener('keydown',function(ev){if(editing!==null)return;if(ev.key==='ArrowRight')go(page+1);if(ev.key==='ArrowLeft')go(page-1)});
+function toast(msg){var t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.remove()},4200)}
+
+function openEditor(i){
+  editing=i;var c=chapter(i);
+  var v=document.createElement('div');v.className='veil';v.id='veil';
+  v.innerHTML='<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ed-h"><h2 id="ed-h">Editar · '+esc(c.label)+'</h2>'+
+  '<label for="ed-title">Título</label><input id="ed-title" value="'+esc(c.title)+'">'+
+  '<label for="ed-body">Texto · deja una línea en blanco entre párrafos</label><textarea id="ed-body">'+esc(c.paras.join('\n\n'))+'</textarea>'+
+  '<p class="status">Para dictar, toca el texto y pulsa el micrófono del teclado. También puedes escribir instrucciones, por ejemplo: «Claude: añade que mi primera moto fue a los 12 años».</p>'+
+  '<div class="row"><button class="ghost" id="ed-cancel">Cerrar</button><button class="primary" id="ed-save">Guardar en este móvil</button></div>'+
+  '<div class="row"><button class="ghost" id="ed-send" style="flex:1">Enviar a Claude por correo</button><button class="ghost" id="ed-copy">Copiar</button></div>'+
+  (c.local?'<button class="ghost" id="ed-reset">Volver al texto original</button>':'')+
+  '<p class="status" id="ed-st"></p><textarea id="ed-fallback" hidden readonly aria-label="Texto para copiar"></textarea></div>';
+  document.body.appendChild(v);
+  document.getElementById('ed-cancel').onclick=closeEditor;
+  document.getElementById('ed-save').onclick=function(){if(saveLocal())document.getElementById('ed-st').textContent='Guardado en este móvil. Pulsa «Enviar a Claude» para pasarlo al libro.'};
+  document.getElementById('ed-send').onclick=send;
+  document.getElementById('ed-copy').onclick=copy;
+  var r=document.getElementById('ed-reset');if(r)r.onclick=function(){var e=getEdits();delete e[c.id];setEdits(e);closeEditor();render();toast('Has vuelto al texto original.')};
+}
+function closeEditor(){var v=document.getElementById('veil');if(v)v.remove();editing=null;render();}
+function current(){
+  var c=BASE.chapters[editing];
+  var paras=document.getElementById('ed-body').value.split(/\n\s*\n/).map(function(s){return s.replace(/\s*\n\s*/g,' ').trim()}).filter(Boolean);
+  return {c:c,title:document.getElementById('ed-title').value.trim()||c.title,paras:paras};
+}
+function saveLocal(){
+  var x=current(),st=document.getElementById('ed-st');
+  if(!x.paras.length){st.textContent='El capítulo no puede quedarse vacío.';return false;}
+  var e=getEdits();e[x.c.id]={title:x.title,paras:x.paras,at:new Date().toISOString()};
+  if(!setEdits(e)){st.textContent='Este navegador no deja guardar. Usa «Enviar a Claude» para no perder el texto.';return false;}
+  return true;
+}
+function plain(){var x=current();return 'LIBRO · '+x.c.label+' · '+x.title+'\n\n'+x.paras.join('\n\n');}
+function send(){
+  saveLocal();
+  var x=current();
+  var url='mailto:'+MAIL+'?subject='+encodeURIComponent('Libro · cambios en '+x.c.label+' · '+x.title)+'&body='+encodeURIComponent('Claude, pasa estos cambios al libro:\n\n'+plain());
+  document.getElementById('ed-st').textContent='Se abre el correo con el texto. Pulsa enviar y después dime en Claude «pasa los cambios del libro».';
+  window.location.href=url;
+}
+function copy(){
+  var t=plain(),st=document.getElementById('ed-st');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){st.textContent='Copiado. Pégalo en tu chat con Claude.'},fb)}else fb();
+  function fb(){var f=document.getElementById('ed-fallback');f.hidden=false;f.value=t;f.focus();f.select();st.textContent='Selecciona y copia el texto de abajo.'}
+}
+render();
+if('serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js').catch(function(){})}catch(e){}}
+})();
+</script>
+</body>
+</html>

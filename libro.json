@@ -1,0 +1,137 @@
+{
+ "title": "Siempre hacia delante",
+ "subtitle": "De las motos de crío al plató",
+ "author": "Ángel Gaitán",
+ "updated": "2026-10-02",
+ "chapters": [
+  {
+   "id": "prologo",
+   "label": "Prólogo",
+   "title": "No soy escritor. Soy mecánico.",
+   "quote": "",
+   "paras": [
+    "Llevo toda la vida con las manos manchadas de grasa, y lo que sé lo he aprendido a golpes: en el taller, en los juzgados, delante de una cámara y delante de mucha gente que me decía que no.",
+    "Este libro no es para contarte lo bien que me ha ido. Es para contarte cómo se tira hacia delante cuando todo empuja hacia atrás. Cada capítulo es una etapa de mi vida, con lo que pasó de verdad, y al final, lo que me enseñó.",
+    "Si tienes un negocio, quieres montarlo o estás pasando un mal momento, esto es para ti."
+   ]
+  },
+  {
+   "id": "p1",
+   "label": "Parte I",
+   "title": "De dónde vengo",
+   "quote": "La ambición no se hereda. Se fabrica.",
+   "paras": [
+    "Lo primero que recuerdo no es una cara ni una casa. Es el ruido de una moto.",
+    "De crío me pasaba las horas entre motos, [con quién: tu padre, un vecino, un amigo], desmontando todo lo que caía en mis manos para entender cómo funcionaba. [Tu primer recuerdo concreto: qué moto, dónde, qué edad tenías.]",
+    "En casa [cómo era tu casa, qué hacían tus padres]. Allí aprendí algo que me ha acompañado siempre: si quieres algo, ve a por ello, porque nadie te lo va a traer.",
+    "[La primera vez que ganaste dinero: cómo, cuánto y qué hiciste con él.]"
+   ]
+  },
+  {
+   "id": "p2",
+   "label": "Parte II",
+   "title": "Aprender el oficio",
+   "quote": "El oficio es el seguro de vida del emprendedor.",
+   "paras": [
+    "[Tu primer trabajo: dónde, con quién y a qué edad.]",
+    "[Cuándo decidiste que ibas a ser mecánico.]",
+    "[Los jefes que te enseñaron, y los que te enseñaron cómo no ser.]",
+    "[Tu primer cliente propio.]"
+   ]
+  },
+  {
+   "id": "p3",
+   "label": "Parte III",
+   "title": "Mi primera empresa",
+   "quote": "Empieza pequeño, pero empieza.",
+   "paras": [
+    "Mi primera empresa se llamó GT Solution Automotive.",
+    "[Cómo la montaste y con qué dinero.]",
+    "[El peor mes. La primera vez que tuviste que pagar nóminas sin tener caja.]",
+    "[Cómo y por qué te hiciste perito judicial.]"
+   ]
+  },
+  {
+   "id": "p4",
+   "label": "Parte IV",
+   "title": "El golpe que lo cambió todo",
+   "quote": "Los peores días abren las puertas más grandes.",
+   "paras": [
+    "Fue en 2021. Estaba trabajando en un coche y se me cayó un motor encima. El codo, roto.",
+    "Para un mecánico, no poder usar las manos es no poder trabajar. Y no poder trabajar, con un taller y gente que depende de ti, es lo más parecido al vacío.",
+    "Fue mi hijo quien me dijo que lo subiera a TikTok. Cogí el móvil y empecé a contar lo que hacía. Un vídeo montando y desmontando un BMW X6 explotó. Detrás vino otro, y otro.",
+    "Muchos compañeros me criticaron por contar los secretos del oficio. Yo lo tenía claro: cuanta más transparencia, mejor.",
+    "[¿Qué sentiste la primera noche que viste las visitas?]"
+   ]
+  },
+  {
+   "id": "p5",
+   "label": "Parte V",
+   "title": "David contra Goliat",
+   "quote": "Tener razón no basta. Hay que aguantar hasta que te la den.",
+   "paras": [
+    "En 2020 me compré un Tesla Model 3. Era cliente de la marca desde 2013 y me encantaban esos coches. Al segundo día empezó a hacer ruidos. Lo llevé al servicio oficial y, un mes después, seguía igual.",
+    "Con los peritos encontramos el problema: una soldadura de la carrocería mal hecha de fábrica. Me ofrecieron soldarla. En un coche nuevo, les dije que no.",
+    "Pedí mi dinero, se negaron y pusieron a sus abogados a trabajar. En 2022, el juez me dio la razón.",
+    "[¿Cuánto te costó el proceso? ¿Quién te dijo que no lo intentaras?]"
+   ]
+  },
+  {
+   "id": "p6",
+   "label": "Parte VI",
+   "title": "La fama y su precio",
+   "quote": "Si no te critican, es que no estás haciendo nada.",
+   "paras": [
+    "Llegar a millones de personas lo cambia todo. [Cuándo te diste cuenta de que ya no eras solo el mecánico de Aranjuez.]",
+    "Vino la televisión, con Horizonte. Vino la DANA de Valencia, donde organizamos la recogida y el reparto de ayuda. Y con todo eso vinieron las críticas, los ataques y las denuncias por hablar claro.",
+    "[Cómo lo viviste por dentro. Qué te dolió y qué te hizo más fuerte.]"
+   ]
+  },
+  {
+   "id": "p7",
+   "label": "Parte VII",
+   "title": "Construir un grupo",
+   "quote": "Crecer es aprender a soltar.",
+   "paras": [
+    "Lo que empezó en un taller hoy es un grupo: GT Automoción, con el taller y la tienda; GT Sport, un gimnasio levantado desde cero; Training Tech Academy, para enseñar el oficio a otros mecánicos; Emprende con Ángel Gaitán, para quien quiere montar algo; un plató de televisión propio; y Anacunda, el paraguas que lo une todo.",
+    "[Cómo aprendiste a delegar. A quién elegiste y por qué.]",
+    "[Cómo usas la tecnología y la inteligencia artificial para estar en todo sin estar en todo.]"
+   ]
+  },
+  {
+   "id": "p8",
+   "label": "Parte VIII",
+   "title": "El hombre detrás del personaje",
+   "quote": "La fuerza también es saber pedir ayuda.",
+   "paras": [
+    "[Padre, familia, cansancio, noches sin dormir. Tú decides cuánto entra aquí.]"
+   ]
+  },
+  {
+   "id": "p9",
+   "label": "Parte IX",
+   "title": "Hoy y lo que viene",
+   "quote": "",
+   "paras": [
+    "[Dónde estás hoy. Lo que te queda por hacer.]",
+    "[Qué le dirías al crío de las motos.]"
+   ]
+  },
+  {
+   "id": "epilogo",
+   "label": "Epílogo",
+   "title": "Mis reglas para tirar hacia delante",
+   "quote": "",
+   "paras": [
+    "1. La ambición no se hereda, se fabrica.",
+    "2. El oficio es tu seguro de vida.",
+    "3. Empieza pequeño, pero empieza.",
+    "4. Los peores días abren las puertas más grandes.",
+    "5. Tener razón no basta: aguanta hasta que te la den.",
+    "6. Si no te critican, no estás haciendo nada.",
+    "7. Crecer es aprender a soltar.",
+    "8. [La tuya.]"
+   ]
+  }
+ ]
+}
