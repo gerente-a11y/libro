@@ -1,7 +1,7 @@
 {
  "name": "Siempre hacia delante",
  "short_name": "Mi libro",
- "start_url": "./",
+ "start_url": "leer/",
  "scope": "./",
  "display": "standalone",
  "background_color": "#1B1D21",
